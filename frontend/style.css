@@ -1,0 +1,265 @@
+:root {
+    --bg-color: #282828;
+    --control-bg-color: #3a3a3a;
+    --card-bg-color: #333333;
+    --border-color: #505050;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-color: #f97316;
+    --accent-color-hover: #ea580c;
+    --link-color: #c4b5fd;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --control-height: 44px;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    margin: 0;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#org-input {
+    flex-grow: 4;
+    background-color: var(--control-bg-color);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0 1rem;
+    font-size: 1rem;
+    height: var(--control-height);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.custom-select-wrapper {
+    flex-grow: 2;
+    position: relative;
+}
+
+#load-button {
+    flex-grow: 1.5;
+}
+
+#org-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.custom-select-trigger {
+    height: var(--control-height);
+    background-color: var(--control-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.custom-select-wrapper.open .custom-select-trigger {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+}
+
+.arrow {
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid var(--text-secondary);
+    border-bottom: 2px solid var(--text-secondary);
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+}
+
+.custom-select-wrapper.open .arrow {
+    transform: rotate(225deg);
+}
+
+.custom-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background-color: var(--control-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+.custom-select-wrapper.open .custom-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.custom-option {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.custom-option:hover {
+    background-color: var(--border-color);
+}
+
+.custom-option.selected {
+    background-color: var(--accent-color);
+}
+
+.number-input-wrapper {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.number-input-wrapper button {
+    height: var(--control-height);
+    width: 44px;
+    background-color: var(--control-bg-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 0;
+    font-size: 1.5rem;
+    line-height: var(--control-height);
+    transition: background-color 0.2s;
+}
+
+.number-input-wrapper button:hover {
+    background-color: var(--border-color);
+}
+
+.number-input-wrapper input {
+    height: var(--control-height);
+    width: 50px;
+    background-color: var(--control-bg-color);
+    color: var(--text-primary);
+    border: none;
+    text-align: center;
+    padding: 0;
+    font-size: 1rem;
+    -moz-appearance: textfield;
+}
+
+.number-input-wrapper input::-webkit-outer-spin-button,
+.number-input-wrapper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.number-input-wrapper input:focus {
+    outline: none;
+}
+
+#load-button {
+    height: var(--control-height);
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+#load-button:hover {
+    background-color: var(--accent-color-hover);
+}
+
+#results-container {
+    margin-top: 3rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.repo-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.repo-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+}
+
+.repo-card h3 {
+    margin: 0 0 0.5rem 0;
+}
+
+.repo-card a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.repo-card a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.repo-card .stats,
+.repo-card .updated-date,
+.repo-card .description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+.repo-card .description {
+    margin-top: 1rem;
+}
+
+#org-input.input-error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Org Snapshot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>GitHub Org Snapshot</h1>
+
+    <div class="controls">
+        <input
+                type="text"
+                id="org-input"
+                value="vercel"
+                placeholder="Organization"
+                aria-label="Organization">
+
+        <div class="custom-select-wrapper">
+            <select id="sort-select" aria-label="Sort by" class="visually-hidden">
+                <option value="stars">Stars</option>
+                <option value="updated">Updated</option>
+            </select>
+            <div class="custom-select-trigger">
+                <span>Stars</span>
+                <div class="arrow"></div>
+            </div>
+            <div class="custom-options">
+                <div class="custom-option" data-value="stars">Stars</div>
+                <div class="custom-option" data-value="updated">Updated</div>
+            </div>
+        </div>
+
+        <div class="number-input-wrapper">
+            <button id="decrement-btn" aria-label="Decrease limit">-</button>
+            <input
+                    type="number"
+                    id="limit-input"
+                    value="5"
+                    min="1"
+                    max="20"
+                    aria-label="Number of repositories to show">
+            <button id="increment-btn" aria-label="Increase limit">+</button>
+        </div>
+
+        <button id="load-button">Load</button>
+    </div>
+
+    <div id="results-container">
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
