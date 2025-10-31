@@ -8,13 +8,8 @@ Single-page UI to browse top repositories of a GitHub organization.
 
 This is a static site. Use any static server (or open `index.html` directly):
 
-- Quick (Python):
-  ```
-  # from frontend directory
-  python -m http.server 5173
-  # then open http://localhost:5173
-  ```
-- Or just open `index.html` in a browser.
+- Quick:
+-  just open `index.html` in a browser.
 
 Backend must run at `http://localhost:8080` by default.
 
